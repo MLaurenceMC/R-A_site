@@ -1,92 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OTP Form Example</title>
+</head>
+<body>
+
 <form class="otp-Form">
-  <span class="mainHeading">Your OTP</span>
-  <p class="otpSubheading">Here is your generated OTP for the parcel drawer</p>
-  <div class="inputContainer">
-    <div class="otp-input" id="otp1"></div>
-    <div class="otp-input" id="otp2"></div>
-    <div class="otp-input" id="otp3"></div>
-    <div class="otp-input" id="otp4"></div>
-  </div>
-  <button type="submit" class="verifyButton">Generate</button>
-  <button class="exitBtn">×</button>
+    <span class="mainHeading">Your OTP</span>
+    <p class="otpSubheading">Here is your generated OTP for the parcel drawer</p>
+    <div class="inputContainer">
+        <div id="otp1" class="otp-input"></div>
+        <div id="otp2" class="otp-input"></div>
+        <div id="otp3" class="otp-input"></div>
+        <div id="otp4" class="otp-input"></div>
+    </div>
+    <button class="verifyButton" type="submit">Generate</button>
 </form>
 
 <section id="rider">
-  <form class="otp-Form">
-    <span class="mainHeading">Send to Rider</span>
-    <p class="otpSubheading">
-      Enter your rider's mobile nmber to send him your generated OTP
-    </p>
-    <div class="inputContainer">
-      <div class="otp-input otp-input-num">
-        <span>+639</span>
-      </div>
-      <input
-        id="rider-input1"
-        class="otp-input"
-        type="text"
-        maxlength="1"
-        required="required"
-      />
-
-      <input
-        id="rider-input2"
-        class="otp-input otp-input-gap"
-        type="text"
-        maxlength="1"
-        required="required"
-      />
-      <input
-        id="rider-input3"
-        class="otp-input"
-        type="text"
-        maxlength="1"
-        required="required"
-      />
-      <input
-        id="rider-input4"
-        class="otp-input"
-        type="text"
-        maxlength="1"
-        required="required"
-      />
-      <input
-        id="rider-input5"
-        class="otp-input otp-input-gap"
-        type="text"
-        maxlength="1"
-        required="required"
-      />
-      <input
-        id="rider-input6"
-        class="otp-input"
-        type="text"
-        maxlength="1"
-        required="required"
-      />
-      <input
-        id="rider-input7"
-        class="otp-input"
-        type="text"
-        maxlength="1"
-        required="required"
-      />
-      <input
-        id="rider-input8"
-        class="otp-input"
-        type="text"
-        maxlength="1"
-        required="required"
-      />
-      <input
-        id="rider-input9"
-        class="otp-input"
-        type="text"
-        maxlength="1"
-        required="required"
-      />
-    </div>
-    <button type="submit" class="verifyButton">Send</button>
-    <button class="exitBtn">×</button>
-  </form>
+    <form class="otp-Form">
+        <span class="mainHeading">Send to Rider</span>
+        <p class="otpSubheading">
+            Enter your rider's mobile number to send him your generated OTP
+        </p>
+        <div class="inputContainer">
+            <div class="otp-input otp-input-num">
+                <span>+639</span>
+            </div>
+            <div class="otp-input"></div>
+            <div class="otp-input"></div>
+            <div class="otp-input"></div>
+            <div class="otp-input"></div>
+            <div class="otp-input"></div>
+            <div class="otp-input"></div>
+            <div class="otp-input"></div>
+            <div class="otp-input"></div>
+            <div class="otp-input"></div>
+        </div>
+        <input
+            inputmode="numeric"
+            required="required"
+            maxlength="9"
+            id="rider-input"
+            type="text"
+            class="num-input"
+            size="9"
+        />
+        <button class="verifyButton" type="submit">Send</button>
+    </form>
 </section>
+
+<script>
+    document.getElementById('rider-input').addEventListener('input', function() {
+        if (this.value.replace(/[^0-9]/g, '').length >= 9) {
+            this.style.paddingRight = '0px';
+        } else {
+            this.style.paddingRight = '10px';
+        }
+    });
+</script>
+
+</body>
+</html>
