@@ -1,3 +1,21 @@
+
+@font-face {
+    font-family: 'Coolvetica';
+    src: url('/coolvetica rg.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  font-family: 'Coolvetica', sans-serif;
+  background-color: rgb(232, 232, 232);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
 .otp-Form {
   width: 230px;
   height: 300px;
@@ -16,6 +34,28 @@
 #rider .otp-Form {
   width: 450px;
   margin-right: 0;
+}
+
+.num-input {
+  letter-spacing: 25.5px;
+  border: none;
+  background: transparent;
+  width: 61%;
+  position: absolute;
+  top: 54%;
+  left: 25.7%;
+  font-weight: 600;
+  line-height: 190%;
+  overflow-x: hidden;
+}
+.num-input:focus {
+  outline: none;
+}
+.num-input:valid {
+  transition-duration: 0.3s;
+}
+.num-input:last-child(2) {
+  letter-spacing: 3px;
 }
 
 .mainHeading {
@@ -61,15 +101,6 @@
 .otp-input-num {
   line-height: 190%;
   width: 50px;
-}
-.otp-input-gap {
-  margin-right: 10px;
-}
-
-.otp-input:focus,
-.otp-input:valid {
-  background-color: rgba(127, 129, 255, 0.199);
-  transition-duration: 0.3s;
 }
 
 .verifyButton {
