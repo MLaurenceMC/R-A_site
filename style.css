@@ -117,8 +117,12 @@ body {
 #rider .verifyButton {
   width: 50%;
 }
-
-.verifyButton:hover {
+.verifyButton:disabled {
+  color: #ccc; /* Grey text */
+  background-color: #f4f4f4; /* Light grey background */
+  border: 1px solid #ccc; /* Grey border */
+}
+.verifyButton:enabled:hover {
   background-color: rgb(144, 145, 255);
   transition-duration: 0.2s;
 }
