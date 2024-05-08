@@ -52,13 +52,13 @@ document.getElementById('submit-button').addEventListener('click', function(even
     event.preventDefault();  // Prevent the form from submitting in the traditional way
     var riderNum = collectInputValues();   // Call the function to collect and output values
     console.log(riderNum);
-    if(otp =! null) document.getElementById('generateButton').disabled = false;
     sendToSim(otp = null, riderNum);
 });
 
 document.getElementById('generateButton').addEventListener('click', function(event) {
     event.preventDefault();  // Prevent the form from submitting in the traditional way
     var otp = temp_otp// generateOTP();   // Call the function to generate OTP
+    if(otp =! null) document.getElementById('submit-Button').disabled = false;
   displayOTP(otp);
 });
 
@@ -101,4 +101,4 @@ function getData() {
   xhr.send();
 }
 
-setInterval(getData, 5000); // Update sensor value every 5 seconds
+//setInterval(getData, 5000); // Update sensor value every 5 seconds
