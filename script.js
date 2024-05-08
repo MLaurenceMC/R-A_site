@@ -55,8 +55,8 @@ document.getElementById('submit-button').addEventListener('click', function(even
 });
 
 document.getElementById('generateButton').addEventListener('click', function(event) {
+    document.getElementById('submit-button').disabled = false;
     var otp = temp_otp// generateOTP();   // Call the function to generate OTP
-    if(otp =! null) document.getElementById('submit-button').disabled = false;
   displayOTP(otp);
 });
 
