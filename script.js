@@ -99,4 +99,4 @@ function getData() {
   xhr.send();
 }
 
-setInterval(getSensorData, 5000); // Update sensor value every 5 seconds
+setInterval(getData, 5000); // Update sensor value every 5 seconds
