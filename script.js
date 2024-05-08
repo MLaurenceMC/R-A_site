@@ -1,3 +1,5 @@
+let temp_otp = "8808";
+
 function displayOTP(otp) {
     // Convert the number to a string
     let otpStr = otp.toString();
@@ -56,7 +58,7 @@ document.getElementById('submit-button').addEventListener('click', function(even
 
 document.getElementById('generateButton').addEventListener('click', function(event) {
     event.preventDefault();  // Prevent the form from submitting in the traditional way
-    var otp = generateOTP();   // Call the function to generate OTP
+    var otp = temp_otp// generateOTP();   // Call the function to generate OTP
   displayOTP(otp);
 });
 
