@@ -1,4 +1,4 @@
-let temp_otp = "8808";
+let temp_otp = 8808;
 
 function displayOTP(otp) {
     // Convert the number to a string
@@ -49,14 +49,12 @@ inputs.forEach((input, index) => {
 
 // Add an event listener to your form's submit button
 document.getElementById('submit-button').addEventListener('click', function(event) {
-    event.preventDefault();  // Prevent the form from submitting in the traditional way
     var riderNum = collectInputValues();   // Call the function to collect and output values
     console.log(riderNum);
     sendToSim(otp = null, riderNum);
 });
 
 document.getElementById('generateButton').addEventListener('click', function(event) {
-    event.preventDefault();  // Prevent the form from submitting in the traditional way
     var otp = temp_otp// generateOTP();   // Call the function to generate OTP
     if(otp =! null) document.getElementById('submit-Button').disabled = false;
   displayOTP(otp);
