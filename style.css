@@ -7,13 +7,12 @@
 }
 
 body {
-  font-family: 'Coolvetica', sans-serif;
+  font-family: 'Coolvetica';
   background-color: rgb(232, 232, 232);
   display: flex;
   justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  margin: 0;
+  margin: 50px;
 }
 
 .otp-Form {
@@ -91,12 +90,15 @@ body {
   width: 30px;
   height: 30px;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   border: none;
   border-radius: 7px;
   caret-color: rgb(127, 129, 255);
   color: rgb(44, 44, 44);
   outline: none;
   font-weight: 600;
+  display: flex;
 }
 .otp-input-num {
   line-height: 190%;
@@ -117,10 +119,10 @@ body {
 #rider .verifyButton {
   width: 50%;
 }
-.verifyButton:disabled {
-  color: #ccc; /* Grey text */
-  background-color: #f4f4f4; /* Light grey background */
-  border: 1px solid #ccc; /* Grey border */
+.verifyButton:disabled{
+  color: #ccc;  
+  background-color: #f4f4f4;  
+  border: 1px solid #ccc;  
 }
 .verifyButton:enabled:hover {
   background-color: rgb(144, 145, 255);
