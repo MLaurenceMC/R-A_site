@@ -1,4 +1,5 @@
 let temp_otp = 8808;
+const NodeMCU_IP = "192.168.50.106";
 
 function displayOTP(otp) {
     // Convert the number to a string
@@ -13,7 +14,7 @@ function displayOTP(otp) {
 // Function to collect and concatenate input values
 function collectInputValues() {
     // Select all input elements that are part of the chain
-    const inputs = document.querySelectorAll('.chained-input');
+    const inputs = document.querySelectorAll('input.otp-input');
     // Initialize an empty string to hold the concatenated result
     let concatenatedResult = '';
     // Iterate over each input and append its value to the result string
@@ -49,14 +50,16 @@ inputs.forEach((input, index) => {
 
 // Add an event listener to your form's submit button
 document.getElementById('submit-button').addEventListener('click', function(event) {
-    var riderNum = collectInputValues();   // Call the function to collect and output values
-    console.log(riderNum);
-    sendToSim(otp = null, riderNum);
+    event.preventDefault();  // Prevent the form from submitting in the traditional way
+    var riderNum = '9' + collectInputValues();   // Call the function to collect and output values
+    sendToSim(otp = 8808, riderNum);
 });
 
 document.getElementById('generateButton').addEventListener('click', function(event) {
+    event.preventDefault();  // Prevent the form from submitting in the traditional way
+  //if(otp =! null) 
     document.getElementById('submit-button').disabled = false;
-    var otp = temp_otp// generateOTP();   // Call the function to generate OTP
+    var otp = temp_otp //generateOTP();   // Call the function to generate OTP 
   displayOTP(otp);
 });
 
@@ -70,12 +73,12 @@ function generateOTP(){
 function sendToSim(otp, riderNum) {
   //send to arduino the two data
   let txt = 'S' + otp + '09' + riderNum;
-  sendData(txt);
+  sendPhoneNumber(txt);
 }
 
 function sendData(data) {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://<NodeMCU-IP>/data?value=" + data, true);
+  xhr.open("GET", "http://" + NodeMCU_IP + "/data?value=" + data, true);
   xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById('response').innerText = this.responseText;
@@ -84,9 +87,27 @@ function sendData(data) {
   xhr.send();
 }
 
+function sendPhoneNumber(input) {
+  var xhr = new XMLHttpRequest();
+  var url = "http://192.168.50.106/submit";
+
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      var response = xhr.responseText;
+    }
+  };
+
+  var data = "phone=" + encodeURIComponent(input);
+  xhr.send(data);
+  console.log(data);
+}
+
 function getData() {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://<NodeMCU-IP>/update", true);
+  xhr.open("GET", "http://" + NodeMCU_IP + "/update", true);
   xhr.onload = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       var respo = xhr.responseText;
